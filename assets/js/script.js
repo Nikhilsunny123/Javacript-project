@@ -86,9 +86,10 @@ document.addEventListener('DOMContentLoaded', function () {
         moves.innerHTML = movescount;
     }
     //time settings
+     let currentTime=null
     setInterval(function () {
 
-        let currentTime = timerElement.innerHTML;
+       currentTime = timerElement.innerHTML;
         currentTime++;
         timerElement.innerHTML = currentTime;
     }, 1000);
@@ -102,7 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
             //removing the container class and adding new class won
             cardContainer.classList.remove('game-container');
             cardContainer.classList.add('won');
-            clearInterval(timerElement);
+            let puasedTimer=currentTime
+            timerElement.innerHTML = puasedTimer;
+           
         }
     }
     gameBoard();
